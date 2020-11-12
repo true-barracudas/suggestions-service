@@ -14,7 +14,8 @@ const shoeSchema = new mongoose.Schema({
   type: 'String',
   price: 'Number',
   sale_price: 'Number',
-  is_favorite: 'Boolean'
+  is_favorite: 'Boolean',
+  recycled_materials: 'Boolean'
 });
 
 const suggestionSchema = new mongoose.Schema({

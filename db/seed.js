@@ -24,6 +24,7 @@ let shoeSeries = ['Originals', 'Performance'];
 let shoeTypes = ['NMD_R1 SHOES', 'ULTRABOOST SHOES'];
 let shoePrices = ['140', '130'];
 let salePrices = ['112', '104', '0'];
+let boolean = ['true', 'false'];
 
 // helper function
 let selectOne = (array) => {
@@ -46,7 +47,8 @@ createSuggestions = () => {
       series: selectOne(shoeSeries)[1],
       type: selectOne(shoeTypes)[1],
       price: selectOne(shoePrices)[1],
-      sale_price: selectOne(salePrices)[1]
+      sale_price: selectOne(salePrices)[1],
+      recycled_materials: selectOne(boolean)[1]
     }
     suggestions.push(shoe);
   }
