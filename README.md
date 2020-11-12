@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/true-barracudas/suggestions-service
+  - https://github.com/true-barracudas/reviews-service
+  - https://github.com/true-barracudas/trackpinch-service
+  - https://github.com/true-barracudas/sizepicker-service
 
 ## Table of Contents
 
