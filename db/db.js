@@ -8,13 +8,14 @@ db.once('open', function () {
 });
 
 const shoeSchema = new mongoose.Schema({
-  id: “Number”,
-  shoe_url: “String”,
-  series: "String",
-  type: "String",
-  price: "Number",
-  sale_price: “Number”,
-  is_favorite: “Boolean”
+  id: 'Number',
+  shoe_url: 'String',
+  series: 'String',
+  type: 'String',
+  price: 'Number',
+  sale_price: 'Number',
+  is_favorite: 'Boolean',
+  recycled_materials: 'Boolean'
 });
 
 const suggestionSchema = new mongoose.Schema({
