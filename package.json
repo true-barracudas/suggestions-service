@@ -7,7 +7,9 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "seed-database": "node db/seed.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.10.13",

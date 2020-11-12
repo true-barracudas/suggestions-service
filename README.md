@@ -27,6 +27,11 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - etc
 
 ## Development
+For seeding database:
+
+```sh
+npm run seed-database
+```
 
 ### Installing Dependencies
 
