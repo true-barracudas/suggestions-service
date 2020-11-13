@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/fec2', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -25,11 +25,15 @@ const suggestionSchema = new mongoose.Schema({
 
 const Suggestion = mongoose.model('suggestion', suggestionSchema);
 
+// let save = (data) => {
+//   Suggestion.create(data, err => {
+//     console.log('Error saving suggestions: ', err);
+//   });
+// };
+
 let save = (data) => {
-  Suggestion.create(data, err => {
-    console.log('Error saving suggestions: ', err);
-  });
-};
+  return Suggestion.create(data);
+}
 
 let findRecord = (id) => {
   return Suggestion.find({shoe_id: id}).exec();
