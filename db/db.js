@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fec2', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -19,7 +19,7 @@ const shoeSchema = new mongoose.Schema({
 });
 
 const suggestionSchema = new mongoose.Schema({
-  shoe_id: “Number”,
+  shoe_id: 'Number',
   list: [shoeSchema]
 });
 
