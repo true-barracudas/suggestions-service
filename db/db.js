@@ -22,3 +22,18 @@ const suggestionSchema = new mongoose.Schema({
   shoe_id: “Number”,
   list: [shoeSchema]
 });
+
+const Suggestion = mongoose.model('suggestion', suggestionSchema);
+
+let save = (data) => {
+  Suggestion.create(data, err => {
+    console.log('Error saving suggestions: ', err);
+  });
+};
+
+let findRecord = (id) => {
+  return Suggestion.find({shoe_id: id}).exec();
+}
+
+module.exports.save = save;
+module.exports.findRecord = findRecord;
