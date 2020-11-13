@@ -1,9 +1,8 @@
 {
   "name": "suggestion-service",
-  "version": "",
   "description": "module for shoe purchasing service",
   "author": "amelia-yeoh",
-  "license": "",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
@@ -13,8 +12,11 @@
     "seed-database": "node db/seed.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "faker": "^5.1.0",
     "mongoose": "^5.10.13",
+    "path": "^0.12.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
@@ -22,11 +24,27 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
+    "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.1",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "faker": "^5.1.0",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3",
     "nodemon": "^1.11.0",
+    "puppeteer": "^5.4.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"
-  }
+  },
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/true-barracudas/suggestions-service.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/true-barracudas/suggestions-service/issues"
+  },
+  "homepage": "https://github.com/true-barracudas/suggestions-service#readme"
 }
