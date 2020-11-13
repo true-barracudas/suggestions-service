@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/true-barracudas/suggestions-service
-  - https://github.com/true-barracudas/reviews-service
-  - https://github.com/true-barracudas/trackpinch-service
-  - https://github.com/true-barracudas/sizepicker-service
+  - https://github.com/teamName/repo
+  - https://github.com/teamName/repo
+  - https://github.com/teamName/repo
+  - https://github.com/teamName/repo
 
 ## Table of Contents
 
@@ -27,11 +27,6 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - etc
 
 ## Development
-For seeding database:
-
-```sh
-npm run seed-database
-```
 
 ### Installing Dependencies
 
