@@ -49,11 +49,10 @@ const shoePrices = ['150', '140', '130', '180', '175', '200', '165', '155', '185
 const salePrices = ['112', '104', '85', '90', '110', '122', '131', '0', '0', '0', '0'];
 const boolean = ['true', 'false'];
 
-// helper function
-// const selectOne = (array) => {
-//   const i = Math.floor(Math.random() * array.length);
-//   return [i, array[i]];
-// };
+const selectOne = (array) => {
+  const i = Math.floor(Math.random() * array.length);
+  return [i, array[i]];
+};
 
 // create 16 suggestions
 const createSuggestions = () => {
@@ -61,8 +60,8 @@ const createSuggestions = () => {
   const copyUrls = imageUrls.slice();
 
   for (let i = 1; i < 17; i += 1) {
-    const url = copyUrls[i % 40];
-    copyUrls.splice(copyUrls.indexOf(url), 1);
+    const [index, url] = selectOne(copyUrls);
+    copyUrls.splice(index, 1);
 
     const shoe = {
       id: faker.random.number(),

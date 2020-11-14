@@ -1,11 +1,11 @@
-var webpack = require('webpack');
-var path = require('path');
+// const webpack = require('webpack');
+const path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'client/dist');
-var APP_DIR = path.resolve(__dirname, 'client/src');
+const BUILD_DIR = path.resolve(__dirname, 'client/dist');
+const APP_DIR = path.resolve(__dirname, 'client/src');
 
-var config = {
-  entry: APP_DIR + '/index.jsx',
+const config = {
+  entry: `${APP_DIR}/index.jsx`,
   watch: true,
   module: {
     rules: [
@@ -15,19 +15,19 @@ var config = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
-      }
-    ]
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+    ],
   },
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
-  }
+    filename: 'bundle.js',
+  },
 };
 
-// var config = {
+// const config = {
 //   entry: APP_DIR + '/index.jsx',
 //   module: {
 //     loaders: [
