@@ -1,9 +1,8 @@
-const db = require('./db.js');
 const faker = require('faker');
-
+const db = require('./db.js');
 
 // possible selections
-let imageUrls = ['https://fec-ay.s3-us-west-1.amazonaws.com/shoe1.jpg',
+const imageUrls = ['https://fec-ay.s3-us-west-1.amazonaws.com/shoe1.jpg',
   'https://fec-ay.s3-us-west-1.amazonaws.com/shoe2.jpg',
   'https://fec-ay.s3-us-west-1.amazonaws.com/shoe3.jpg',
   'https://fec-ay.s3-us-west-1.amazonaws.com/shoe4.jpg',
@@ -42,37 +41,36 @@ let imageUrls = ['https://fec-ay.s3-us-west-1.amazonaws.com/shoe1.jpg',
   'https://fec-ay.s3-us-west-1.amazonaws.com/shoe37.jpg',
   'https://fec-ay.s3-us-west-1.amazonaws.com/shoe38.jpg',
   'https://fec-ay.s3-us-west-1.amazonaws.com/shoe39.jpg',
-  'https://fec-ay.s3-us-west-1.amazonaws.com/shoe40.jpg'
+  'https://fec-ay.s3-us-west-1.amazonaws.com/shoe40.jpg',
 ];
-let shoeSeries = ['Originals', 'Performance', 'Running', 'Hiking', 'Essentials', 'Lifestyle', 'Basketball', 'Workout', 'Gym', 'Clean Classics'];
-let shoeTypes = ['NMD_R1 SHOES', 'ULTRABOOST SHOES', 'ULTRABOOST ST SHOES', 'ULTRABOOST DNA SHOES', 'ULTRABOOST WINTER.RDY SHOES', 'BUSENITZ PRO SHOES', 'NIZZA TREFOIL SHOES', 'ZX 2K BOOST SHOES', 'OZWEEGO SHOES', 'NMD_R1 V2 SHOES'];
-let shoePrices = ['150', '140', '130', '180', '175', '200', '165', '155', '185', '220'];
-let salePrices = ['112', '104', '85', '90', '110', '122', '131','0', '0', '0', '0'];
-let boolean = ['true', 'false'];
+const shoeSeries = ['Originals', 'Performance', 'Running', 'Hiking', 'Essentials', 'Lifestyle', 'Basketball', 'Workout', 'Gym', 'Clean Classics'];
+const shoeTypes = ['NMD_R1 SHOES', 'ULTRABOOST SHOES', 'ULTRABOOST ST SHOES', 'ULTRABOOST DNA SHOES', 'ULTRABOOST WINTER.RDY SHOES', 'BUSENITZ PRO SHOES', 'NIZZA TREFOIL SHOES', 'ZX 2K BOOST SHOES', 'OZWEEGO SHOES', 'NMD_R1 V2 SHOES'];
+const shoePrices = ['150', '140', '130', '180', '175', '200', '165', '155', '185', '220'];
+const salePrices = ['112', '104', '85', '90', '110', '122', '131', '0', '0', '0', '0'];
+const boolean = ['true', 'false'];
 
-// helper function
-let selectOne = (array) => {
-  let i = Math.floor(Math.random() * array.length);
+const selectOne = (array) => {
+  const i = Math.floor(Math.random() * array.length);
   return [i, array[i]];
-}
+};
 
 // create 16 suggestions
-createSuggestions = () => {
-  let suggestions = [];
-  let copyUrls = imageUrls.slice();
+const createSuggestions = () => {
+  const suggestions = [];
+  const copyUrls = imageUrls.slice();
 
-  for (let i = 1; i < 17; i++) {
-    let url = copyUrls[i % 40];
-    copyUrls.splice(copyUrls.indexOf(url), 1);
+  for (let i = 1; i < 17; i += 1) {
+    const [index, url] = selectOne(copyUrls);
+    copyUrls.splice(index, 1);
 
-    let shoe = {
+    const shoe = {
       id: faker.random.number(),
       shoe_url: url,
       series: shoeSeries[i % 10],
       type: shoeTypes[i % 10],
       price: shoePrices[i % 10],
       sale_price: salePrices[i % 10],
-      recycled_materials: boolean[i % 2]
+      recycled_materials: boolean[i % 2],
     };
     // let [index, url] = selectOne(copyUrls);
     // copyUrls.splice(index, 1);
@@ -89,27 +87,27 @@ createSuggestions = () => {
     suggestions.push(shoe);
   }
   return suggestions;
-}
+};
 
-createRecords = () => {
-  let records = [];
+const createRecords = () => {
+  const records = [];
 
   // create 100 records
-  for (let i = 1; i < 101; i++) {
-    let newRecord = {
+  for (let i = 1; i < 101; i += 1) {
+    const newRecord = {
       shoe_id: i,
-      list: createSuggestions()
-    }
+      list: createSuggestions(),
+    };
     records.push(newRecord);
   }
   return records;
-}
+};
 
 // save records into db
 db.save(createRecords())
-.then((records) => {
-  console.log('Successfully saved records', records);
-})
-.catch(err => {
-  console.log('Error saving suggestions: ', err);
-});
+  .then((records) => {
+    console.log('Successfully saved records', records);
+  })
+  .catch((err) => {
+    console.log('Error saving suggestions: ', err);
+  });
