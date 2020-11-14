@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-const { Suggestion } = require('../db/db.js');
+const Suggestion = require('../db/models/suggestion.js');
 
 const testData = {
   shoe_id: 21,
@@ -65,18 +65,26 @@ describe('Seeding database test', () => {
     await db.close();
   });
 
+  beforeEach(async () => {
+    await db.collection('suggestions').deleteMany({});
+  });
+
   // normal use case
   it('should create & save user successfully', async () => {
+    const suggestions = db.collection('suggestions');
     const validRecord = new Suggestion(testData);
-    const savedRecord = await validRecord.save();
+    await suggestions.insertOne(validRecord);
+    const savedRecord = await suggestions.findOne({ shoe_id: 21 });
     expect(savedRecord._id).toBeDefined();
-    expect(savedRecord.list.length).toBe(testData.list.length);
+    expect(savedRecord.list.length).toEqual(testData.list.length);
   });
 
   // test that the schema works
   it('should insert record successfully, but exclude the fields that are not defined in the schema', async () => {
+    const suggestions = db.collection('suggestions');
     const invalidRecord = new Suggestion(testData1);
-    const savedInvalidRecord = await invalidRecord.save();
+    await suggestions.insertOne(invalidRecord);
+    const savedInvalidRecord = await suggestions.findOne({ shoe_id: 21 });
     expect(savedInvalidRecord._id).toBeDefined();
     expect(savedInvalidRecord.shoe_name).toBeUndefined();
     expect(savedInvalidRecord.list[0].color).toBeUndefined();
