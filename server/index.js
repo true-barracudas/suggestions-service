@@ -4,7 +4,6 @@ const path = require('path');
 const db = require('../db/controllers/db.js');
 
 const app = express();
-const port = 3001;
 
 app.use(bodyParser.json());
 
@@ -12,8 +11,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 // set up routes
-app.get('/api/suggestions', (req, res) => {
-  db.findRecord(req.body.id)
+app.get('/api/suggestions/:id?', (req, res) => {
+  db.findRecord(parseInt(req.params.id, 10))
     .then((record) => {
       res.status(200).send(record);
       console.log('Successfully retrieved record: ', record);
@@ -24,6 +23,4 @@ app.get('/api/suggestions', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-  console.log(`App is listening at http://localhost:${port}`);
-});
+module.exports = app;
