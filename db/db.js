@@ -30,5 +30,8 @@ const save = (data) => Suggestion.create(data);
 
 const findRecord = (id) => Suggestion.find({ shoe_id: id }).exec();
 
-module.exports.save = save;
-module.exports.findRecord = findRecord;
+module.exports = {
+  save,
+  findRecord,
+  Suggestion,
+};
