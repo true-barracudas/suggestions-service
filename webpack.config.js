@@ -1,4 +1,3 @@
-// const webpack = require('webpack');
 const path = require('path');
 
 const BUILD_DIR = path.resolve(__dirname, 'client/dist');
@@ -12,6 +11,7 @@ const config = {
       {
         test: /\.jsx?/,
         include: APP_DIR,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -26,25 +26,5 @@ const config = {
     filename: 'bundle.js',
   },
 };
-
-// const config = {
-//   entry: APP_DIR + '/index.jsx',
-//   module: {
-//     loaders: [
-//       {
-//         test: /\.jsx?/,
-//         include: APP_DIR,
-//         loader: 'babel',
-//         query: {
-//           presets: ['es2015', 'react']
-//         }
-//       }
-//     ]
-//   },
-//   output: {
-//     path: BUILD_DIR,
-//     filename: 'bundle.js'
-//   }
-// };
 
 module.exports = config;

@@ -1,5 +1,5 @@
 const faker = require('faker');
-const db = require('./db.js');
+const db = require('./controllers/db.js');
 
 // possible selections
 const imageUrls = ['https://fec-ay.s3-us-west-1.amazonaws.com/shoe1.jpg',
