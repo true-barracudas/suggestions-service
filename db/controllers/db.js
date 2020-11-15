@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Suggestion = require('../models/suggestion.js');
 
-mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/fec-test', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
