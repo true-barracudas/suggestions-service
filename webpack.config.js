@@ -21,6 +21,9 @@ const config = {
       },
     ],
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js',
