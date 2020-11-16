@@ -7,55 +7,56 @@ const app = require('../server/index.js');
 // open connection to test DB
 mongoose.connect('mongodb://localhost/fec-test', { useNewUrlParser: true, useUnifiedTopology: true });
 const testDB = mongoose.connection;
-testDB.on('error', console.error.bind(console, 'connection error:'));testDB.once('open', () => {
+testDB.on('error', console.error.bind(console, 'connection error:'));
+testDB.once('open', () => {
   console.log('test db connected!');
 });
 
 // test data for mongo in-memory server
 const testData = {
-  shoe_id: 21,
+  shoeID: 21,
   list: [{
     id: 23675,
-    shoe_url: 'https://fec-ay.s3-us-west-1.amazonaws.com/shoe10.jpg',
+    shoeUrl: 'https://fec-ay.s3-us-west-1.amazonaws.com/shoe10.jpg',
     series: 'Performance',
     type: 'NIZZA TREFOIL SHOES',
     price: '140',
-    sale_price: '104',
-    recycled_materials: false,
+    salePrice: '104',
+    recycledMaterials: false,
   },
   {
     id: 87953,
-    shoe_url: 'https://fec-ay.s3-us-west-1.amazonaws.com/shoe37.jpg',
+    shoeUrl: 'https://fec-ay.s3-us-west-1.amazonaws.com/shoe37.jpg',
     series: 'Essentials',
     type: 'ULTRABOOST SHOES',
     price: '180',
-    sale_price: '0',
-    recycled_materials: true,
+    salePrice: '0',
+    recycledMaterials: true,
   },
   ],
 };
 
 const testData1 = {
-  shoe_id: 22,
-  shoe_name: 'Ultraboost',
+  shoeID: 22,
+  shoeName: 'Ultraboost',
   list: [{
     id: 23675,
-    shoe_url: 'https://fec-ay.s3-us-west-1.amazonaws.com/shoe10.jpg',
+    shoeUrl: 'https://fec-ay.s3-us-west-1.amazonaws.com/shoe10.jpg',
     series: 'Performance',
     color: 'Black',
     type: 'NIZZA TREFOIL SHOES',
     price: '140',
-    sale_price: '104',
-    recycled_materials: false,
+    salePrice: '104',
+    recycledMaterials: false,
   },
   {
     id: 87953,
-    shoe_url: 'https://fec-ay.s3-us-west-1.amazonaws.com/shoe37.jpg',
+    shoeUrl: 'https://fec-ay.s3-us-west-1.amazonaws.com/shoe37.jpg',
     series: 'Essentials',
     type: 'ULTRABOOST SHOES',
     price: '180',
-    sale_price: '0',
-    recycled_materials: true,
+    salePrice: '0',
+    recycledMaterials: true,
   },
   ],
 };
@@ -86,7 +87,7 @@ describe('Seeding database', () => {
     const suggestions = db.collection('suggestions');
     const validRecord = new Suggestion(testData);
     await suggestions.insertOne(validRecord);
-    const savedRecord = await suggestions.findOne({ shoe_id: 21 });
+    const savedRecord = await suggestions.findOne({ shoeID: 21 });
     expect(savedRecord._id).toBeDefined();
     expect(savedRecord.list.length).toEqual(testData.list.length);
   });
@@ -96,9 +97,9 @@ describe('Seeding database', () => {
     const suggestions = db.collection('suggestions');
     const invalidRecord = new Suggestion(testData1);
     await suggestions.insertOne(invalidRecord);
-    const savedInvalidRecord = await suggestions.findOne({ shoe_id: 22 });
+    const savedInvalidRecord = await suggestions.findOne({ shoeID: 22 });
     expect(savedInvalidRecord._id).toBeDefined();
-    expect(savedInvalidRecord.shoe_name).toBeUndefined();
+    expect(savedInvalidRecord.shoeName).toBeUndefined();
     expect(savedInvalidRecord.list[0].color).toBeUndefined();
   });
 });
@@ -109,7 +110,7 @@ describe('server routes', () => {
     const response = await request(app).get('/api/suggestions/28');
     expect(response.body.length).toBe(1);
     expect(response.body[0].list.length).toBe(16);
-    expect(response.body[0]).toHaveProperty('shoe_id');
+    expect(response.body[0]).toHaveProperty('shoeID');
     expect(response.body[0]).toHaveProperty('list');
     expect(response.statusCode).toBe(200);
   });

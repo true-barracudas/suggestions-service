@@ -65,24 +65,24 @@ const createSuggestions = () => {
 
     const shoe = {
       id: faker.random.number(),
-      shoe_url: url,
+      shoeUrl: url,
       series: shoeSeries[i % 10],
       type: shoeTypes[i % 10],
       price: shoePrices[i % 10],
-      sale_price: salePrices[i % 10],
-      recycled_materials: boolean[i % 2],
+      salePrice: salePrices[i % 10],
+      recycledMaterials: boolean[i % 2],
     };
     // let [index, url] = selectOne(copyUrls);
     // copyUrls.splice(index, 1);
 
     // let shoe = {
     //   id: faker.random.number(),
-    //   shoe_url: url,
+    //   shoeUrl: url,
     //   series: selectOne(shoeSeries)[1],
     //   type: selectOne(shoeTypes)[1],
     //   price: selectOne(shoePrices)[1],
-    //   sale_price: selectOne(salePrices)[1],
-    //   recycled_materials: selectOne(boolean)[1]
+    //   salePrice: selectOne(salePrices)[1],
+    //   recycledMaterials: selectOne(boolean)[1]
     // }
     suggestions.push(shoe);
   }
@@ -95,7 +95,7 @@ const createRecords = () => {
   // create 100 records
   for (let i = 1; i < 101; i += 1) {
     const newRecord = {
-      shoe_id: i,
+      shoeID: i,
       list: createSuggestions(),
     };
     records.push(newRecord);

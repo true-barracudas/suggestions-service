@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 
 const shoeSchema = new mongoose.Schema({
   id: 'Number',
-  shoe_url: 'String',
+  shoeUrl: 'String',
   series: 'String',
   type: 'String',
   price: 'Number',
-  sale_price: 'Number',
-  is_favorite: 'Boolean',
-  recycled_materials: 'Boolean',
+  salePrice: 'Number',
+  isFavorite: 'Boolean',
+  recycledMaterials: 'Boolean',
 });
 
 const suggestionSchema = new mongoose.Schema({
-  shoe_id: 'Number',
+  shoeID: 'Number',
   list: [shoeSchema],
 });
 
