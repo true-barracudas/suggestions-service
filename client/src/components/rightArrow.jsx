@@ -28,17 +28,27 @@ const StyledRightArrow = styled.svg`
   }
 `;
 
-const RightArrow = (props) => (
-  <Container>
-    <Wrapper>
-      <StyledRightArrow width="1.5rem" height="1.5rem" viewBox="0 0 10 24">
-        <path fill="none" stroke="black" strokeMiterlimit="10" strokeWidth="2" d="M2 5.5L8.5 12 2 18.5"></path>
-      </StyledRightArrow>
-    </Wrapper>
-  </Container>
-);
+const RightArrow = ({ view, setView }) => {
+  const updateView = () => {
+    if (view === 3) {
+      setView(0);
+    } else {
+      setView(view + 1);
+    }
+  };
+  return (
+    <Container>
+      <Wrapper>
+        <StyledRightArrow width="1.5rem" height="1.5rem" viewBox="0 0 10 24" onClick={updateView}>
+          <path fill="none" stroke="black" strokeMiterlimit="10" strokeWidth="2" d="M2 5.5L8.5 12 2 18.5"></path>
+        </StyledRightArrow>
+      </Wrapper>
+    </Container>
+  );
+};
 
 RightArrow.propTypes = {
-  list: PropTypes.string,
+  view: PropTypes.number,
+  setView: PropTypes.func,
 };
 export default RightArrow;

@@ -28,15 +28,24 @@ const StyledLeftArrow = styled.svg`
   }
 `;
 
-const LeftArrow = (props) => (
-  <Container>
-    <Wrapper>
-      <StyledLeftArrow width="1.5rem" height="1.5rem" viewBox="0 0 10 24">
-      <path fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="2" d="M8 5.5L1.5 12 8 18.5"></path>
-      </StyledLeftArrow>
-    </Wrapper>
-  </Container>
-);
+const LeftArrow = ({ view, setView }) => {
+  const updateView = () => {
+    if (view === 0) {
+      setView(3);
+    } else {
+      setView(view - 1);
+    }
+  };
+  return (
+    <Container>
+      <Wrapper>
+        <StyledLeftArrow width="1.5rem" height="1.5rem" viewBox="0 0 10 24" onClick={updateView}>
+        <path fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="2" d="M8 5.5L1.5 12 8 18.5"></path>
+        </StyledLeftArrow>
+      </Wrapper>
+    </Container>
+  );
+};
 
 LeftArrow.propTypes = {
   list: PropTypes.string,

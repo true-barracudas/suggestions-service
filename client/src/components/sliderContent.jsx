@@ -12,13 +12,14 @@ const StyledSliderContent = styled.div`
 
 const Wrapper = styled.div`
   padding-left: 10px;
+  transform: translateX(-${(props) => (props.view * 1143.96)}px);
 `;
 
-function SliderContent({ list }) {
+function SliderContent({ view, list }) {
   const items = list.map(({
     id, price, recycledMaterials, salePrice, series, shoeUrl, type,
   }) => (
-      <Wrapper key={id}>
+      <Wrapper view={view} key={id}>
         <Photo url={shoeUrl}/>
         <Details
         price={price}
@@ -37,6 +38,7 @@ function SliderContent({ list }) {
 }
 
 SliderContent.propTypes = {
+  view: PropTypes.number,
   list: PropTypes.array,
 };
 
