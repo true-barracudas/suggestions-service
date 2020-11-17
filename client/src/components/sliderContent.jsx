@@ -1,6 +1,6 @@
 // details of shoe
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
 import Photo from './photo.jsx';
 import Details from './details.jsx';
@@ -13,6 +13,7 @@ const StyledSliderContent = styled.div`
 const Wrapper = styled.div`
   padding-left: 10px;
   transform: translateX(-${(props) => (props.view * 1143.96)}px);
+  transition: transform 0.5s;
 `;
 
 function SliderContent({ view, list }) {
