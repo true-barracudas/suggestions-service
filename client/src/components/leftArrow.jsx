@@ -5,9 +5,11 @@ import styled from 'styled-components';
 const Container = styled.div`
   position: absolute;
   display: flex;
-  top: 250px;
   height: 100%;
   padding-left: 10px;
+  align-items: center;
+  transform: translateY(70px);
+  z-index: 100;
 `;
 
 const Wrapper = styled.div`

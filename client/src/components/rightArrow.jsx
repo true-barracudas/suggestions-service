@@ -3,25 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-// const StyledRightArrow = styled.button`
-//   color: black;
-//   height: 30px;
-//   width: 30px;
-//   font-size: 40px;
-//   display: inline-block;
-//   line-height: 0px;
-//   &:hover {
-//     color: white;
-//     background-color: black;
-//   }
-// `;
-
 const Container = styled.div`
   position: absolute;
   display: flex;
-  top: 250px;
   height: 100%;
-  right: 0;
+  right: 0px;
+  align-items: center;
+  transform: translateY(70px);
 `;
 
 const Wrapper = styled.div`
