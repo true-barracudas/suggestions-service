@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeadingStyle = styled.h5`
-  font-family: adihaus;
+  font-family: adineue pro bold web;
   font-size: 30px;
   padding: 0px;
   margin: 0px;
