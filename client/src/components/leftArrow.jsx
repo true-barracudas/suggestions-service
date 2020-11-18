@@ -8,7 +8,6 @@ const Container = styled.div`
   height: 100%;
   padding-left: 10px;
   align-items: center;
-  transform: translateY(70px);
   z-index: 100;
 `;
 

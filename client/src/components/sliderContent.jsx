@@ -1,4 +1,3 @@
-// details of shoe
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
@@ -11,13 +10,12 @@ const StyledSliderContent = styled.div`
 `;
 
 const Wrapper = styled.div`
-  margin: 0 4px;
+  margin: 0 5px;
   transform: translateX(-${(props) => (props.view * 1143.96)}px);
   transition: transform 0.5s;
-  border: 0.2px solid transparent;
   &:hover {
-    border: 0.8px solid black;
-  }
+    border: 1px solid black;
+    }
 `;
 
 function SliderContent({ view, list }) {

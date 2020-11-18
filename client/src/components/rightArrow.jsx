@@ -6,9 +6,8 @@ const Container = styled.div`
   position: absolute;
   display: flex;
   height: 100%;
-  right: 0px;
+  right: 10px;
   align-items: center;
-  transform: translateY(70px);
 `;
 
 const Wrapper = styled.div`

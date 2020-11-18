@@ -1,4 +1,3 @@
-// display photos and details of each shoe
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -17,6 +16,7 @@ const Container = styled.div`
 const StyledSlider = styled.div`
   display: flex;
   overflow: hidden;
+  position: relative;
 `;
 
 const Slider = (props) => {
@@ -25,6 +25,7 @@ const Slider = (props) => {
     <Container>
         <StyledSlider>
           <LeftArrow view={view} setView={setView}/>
+          {/* <Arrows /> */}
           <SliderContent view={view} list={props.list} />
           <RightArrow view={view} setView={setView}/>
         </StyledSlider>
@@ -33,14 +34,6 @@ const Slider = (props) => {
         </div>
     </Container>
   );
-  // return (
-  //   <StyledSlider>
-  //     <LeftArrow view={view} setView={setView}/>
-  //     <SliderContent view={view} list={props.list} />
-  //     <RightArrow view={view} setView={setView}/>
-  //     <Bars view={view} setView={setView} list={props.list}/>
-  //   </StyledSlider>
-  // );
 };
 
 Slider.propTypes = {
