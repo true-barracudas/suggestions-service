@@ -11,9 +11,13 @@ const StyledSliderContent = styled.div`
 `;
 
 const Wrapper = styled.div`
-  padding-left: 10px;
+  margin: 0 4px;
   transform: translateX(-${(props) => (props.view * 1143.96)}px);
   transition: transform 0.5s;
+  border: 0.2px solid transparent;
+  &:hover {
+    border: 0.8px solid black;
+  }
 `;
 
 function SliderContent({ view, list }) {
