@@ -1,4 +1,3 @@
-// left and right arrows for navigating views
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';

@@ -32,10 +32,15 @@ const StyledSeries = styled.div`
   margin-bottom: 5px;
 `;
 
-const Wrapper = styled.div`
+const WrapperPrices = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
+const WrapperTypePrice = styled.div`
+  height: 130px;
+`;
+
 function Details({
   price, recycled, salePrice, series, type,
 }) {
@@ -43,10 +48,10 @@ function Details({
   const getPrice = () => {
     if (salePrice !== 0) {
       return (
-        <Wrapper>
+        <WrapperPrices>
           <StyledSalePrice>${salePrice}</StyledSalePrice>
           <StyledPrice salePrice={salePrice}>${price}</StyledPrice>
-        </Wrapper>
+        </WrapperPrices>
       );
     }
     return (
@@ -57,8 +62,10 @@ function Details({
   return (
     <>
       <StyledSeries>{series}</StyledSeries>
-      <StyledType>{type}</StyledType>
-      {itemPrice}
+      <WrapperTypePrice>
+        <StyledType>{type}</StyledType>
+        {itemPrice}
+      </WrapperTypePrice>
     </>
   );
 }
