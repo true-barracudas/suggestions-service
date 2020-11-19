@@ -1,8 +1,8 @@
 const { MongoClient } = require('mongodb');
 const mongoose = require('mongoose');
 const request = require('supertest');
-const Suggestion = require('../db/models/suggestion.js');
-const app = require('../server/index.js');
+const Suggestion = require('../../db/models/suggestion.js');
+const app = require('../../server/index.js');
 
 // open connection to test DB
 mongoose.connect('mongodb://localhost/fec-test', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -10,6 +10,7 @@ const testDB = mongoose.connection;
 testDB.on('error', console.error.bind(console, 'connection error:'));
 testDB.once('open', () => {
   console.log('test db connected!');
+  console.log(__dirname);
 });
 
 // test data for mongo in-memory server
