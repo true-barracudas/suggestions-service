@@ -2,10 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const StyledText = styled.div`
+const StyledType = styled.div`
   font-family: AdihausDIN;
   font-size: 13px;
   padding: 3px;
+`;
+
+const StyledPrice = styled.div`
+  font-family: AdihausDIN;
+  font-size: 13px;
+  padding: 3px;
+  color: ${(props) => (props.salePrice !== 0 ? 'grey' : 'black')};
+  text-decoration: ${(props) => (props.salePrice !== 0 ? 'line-through' : 'none')};
+`;
+
+const StyledSalePrice = styled.div`
+  font-family: AdihausDIN;
+  font-size: 13px;
+  padding: 3px;
+  color: red;
 `;
 
 const StyledSeries = styled.div`
@@ -17,14 +32,40 @@ const StyledSeries = styled.div`
   margin-bottom: 5px;
 `;
 
+const WrapperPrices = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const WrapperTypePrice = styled.div`
+  height: 130px;
+`;
+
 function Details({
   price, recycled, salePrice, series, type,
 }) {
+  console.log(typeof salePrice);
+  const getPrice = () => {
+    if (salePrice !== 0) {
+      return (
+        <WrapperPrices>
+          <StyledSalePrice>${salePrice}</StyledSalePrice>
+          <StyledPrice salePrice={salePrice}>${price}</StyledPrice>
+        </WrapperPrices>
+      );
+    }
+    return (
+      <StyledPrice salePrice={salePrice}>${price}</StyledPrice>
+    );
+  };
+  const itemPrice = getPrice();
   return (
     <>
       <StyledSeries>{series}</StyledSeries>
-      <StyledText>{type}</StyledText>
-      <StyledText>${price}</StyledText>
+      <WrapperTypePrice>
+        <StyledType>{type}</StyledType>
+        {itemPrice}
+      </WrapperTypePrice>
     </>
   );
 }
