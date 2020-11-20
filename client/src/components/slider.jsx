@@ -22,10 +22,9 @@ const StyledSlider = styled.div`
 const Slider = (props) => {
   const [view, setView] = useState(0);
   return (
-    <Container>
+    <Container className="slider">
         <StyledSlider>
           <LeftArrow view={view} setView={setView}/>
-          {/* <Arrows /> */}
           <SliderContent view={view} list={props.list} />
           <RightArrow view={view} setView={setView}/>
         </StyledSlider>

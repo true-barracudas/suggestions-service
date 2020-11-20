@@ -10,7 +10,9 @@
     "start": "nodemon server/start.js",
     "dev-react": "webpack -d --watch",
     "seed-database": "node db/seed.js",
-    "test": "jest --config ./test/jest.config.js --watch"
+    "test-be": "./node_modules/.bin/jest --config ./test/backend/jest.config.js --watch",
+    "test-fe": "./node_modules/.bin/jest --config ./test/frontend/jest.config.js --watch",
+    "test": "./node_modules/.bin/jest --config ./test/jest.all.config.js --watch"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -21,8 +23,8 @@
     "mongoose": "^5.10.13",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
@@ -33,11 +35,15 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.13.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-react": "^7.21.5",
     "jest": "^26.6.3",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
     "nodemon": "^1.11.0",
     "puppeteer": "^5.4.1",
     "supertest": "^6.0.1",

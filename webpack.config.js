@@ -22,7 +22,7 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.json', '.css'],
   },
   output: {
     path: BUILD_DIR,
