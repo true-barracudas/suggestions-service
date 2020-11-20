@@ -10,7 +10,6 @@ const testDB = mongoose.connection;
 testDB.on('error', console.error.bind(console, 'connection error:'));
 testDB.once('open', () => {
   console.log('test db connected!');
-  console.log(__dirname);
 });
 
 // test data for mongo in-memory server
@@ -66,6 +65,7 @@ const testData1 = {
 describe('Seeding database', () => {
   let connection;
   let db;
+
   beforeAll(async () => {
     connection = await MongoClient.connect(process.env.MONGO_URL, {
       useNewUrlParser: true,
