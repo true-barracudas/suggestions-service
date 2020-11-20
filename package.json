@@ -10,9 +10,11 @@
     "start": "nodemon server/start.js",
     "dev-react": "webpack -d --watch",
     "seed-database": "node db/seed.js",
-    "test-be": "./node_modules/.bin/jest --config ./test/backend/jest.config.js --watch",
-    "test-fe": "./node_modules/.bin/jest --config ./test/frontend/jest.config.js --watch",
-    "test": "./node_modules/.bin/jest --config ./test/jest.all.config.js --watch"
+    "test-be": "./node_modules/.bin/jest --config ./test/backend/jest.config.js",
+    "test-fe": "./node_modules/.bin/jest --config ./test/frontend/jest.config.js",
+    "test-be:watch": "npm run test-be -- --watch",
+    "test-fe:watch": "npm run test-fe -- --watch",
+    "test": "npm run test-fe && npm run test-be"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -29,6 +31,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-async-to-generator": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@shelf/jest-mongodb": "^1.2.3",
