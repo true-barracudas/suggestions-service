@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  top: 15%;
+  top: 5%;
   right: 10%;
   position absolute;
   cursor: pointer;
