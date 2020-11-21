@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 // set up routes
-app.get('/api/suggestions/:id?', (req, res) => {
+app.get('/api/products/:id/suggestions', (req, res) => {
   db.findRecord(parseInt(req.params.id, 10))
     .then((record) => {
       res.status(200).send(record);
