@@ -27,7 +27,7 @@ const Span = styled.span`
   display: block;
   height: ${(props) => (props.view.toString() === props.id ? '5px' : '1px')};
   transition: .1s cubic-bezier(.3,0,.45,1);
-  width: 22px;
+  width: 23px;
   &:hover {
     height: 5px;
   }

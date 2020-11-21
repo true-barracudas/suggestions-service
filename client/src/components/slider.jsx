@@ -5,13 +5,20 @@ import SliderContent from './sliderContent.jsx';
 import RightArrow from './rightArrow.jsx';
 import LeftArrow from './leftArrow.jsx';
 import Bars from './bars.jsx';
+import WIDTH from '../constants';
 
 const Container = styled.div`
   height: 100%;
   display: flex;
-  width: 1143.96px;
+  width: ${WIDTH}px;
   flex-direction: column;
 `;
+// const Container = styled.div`
+//   height: 100%;
+//   display: flex;
+//   width: 1143.96px;
+//   flex-direction: column;
+// `;
 
 const StyledSlider = styled.div`
   display: flex;

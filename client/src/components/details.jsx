@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 const StyledType = styled.div`
   font-family: AdihausDIN;
-  font-size: 13px;
-  padding: 3px;
+  font-size: 16px;
+  margin-top: 10px;
 `;
 
 const StyledPrice = styled.div`
   font-family: AdihausDIN;
-  font-size: 13px;
+  font-size: 16px;
   padding: 3px;
   color: ${(props) => (props.salePrice !== 0 ? 'grey' : 'black')};
   text-decoration: ${(props) => (props.salePrice !== 0 ? 'line-through' : 'none')};
@@ -18,7 +18,7 @@ const StyledPrice = styled.div`
 
 const StyledSalePrice = styled.div`
   font-family: AdihausDIN;
-  font-size: 13px;
+  font-size: 16px;
   padding: 3px;
   color: red;
 `;
@@ -26,25 +26,25 @@ const StyledSalePrice = styled.div`
 const StyledSeries = styled.div`
   color: grey;
   font-family: AdihausDIN;
-  font-size: 13px;
-  padding: 3px;
+  font-size: 16px;
+  padding: 5px;
   margin-top: 5px;
-  margin-bottom: 5px;
 `;
 
 const WrapperPrices = styled.div`
   display: flex;
   flex-direction: row;
+  margin-top: 5px;
 `;
 
 const WrapperTypePrice = styled.div`
   height: 130px;
+  padding: 5px;
 `;
 
 function Details({
   price, recycled, salePrice, series, type,
 }) {
-  console.log(typeof salePrice);
   const getPrice = () => {
     if (salePrice !== 0) {
       return (

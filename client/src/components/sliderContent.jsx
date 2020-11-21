@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Photo from './photo.jsx';
 import Details from './details.jsx';
+import WIDTH from '../constants';
 
 const StyledSliderContent = styled.div`
   display: flex;
@@ -11,8 +12,9 @@ const StyledSliderContent = styled.div`
 
 const Wrapper = styled.div`
   margin: 0 5px;
-  transform: translateX(-${(props) => (props.view * 1143.96)}px);
+  transform: translateX(-${(props) => (props.view * WIDTH)}px);
   transition: transform 0.5s;
+  border: 1px solid transparent;
   &:hover {
     border: 1px solid black;
     }
