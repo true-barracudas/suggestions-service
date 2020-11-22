@@ -12,7 +12,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/products/1/suggestions/')
+    const url = document.URL;
+    const parseURL = url.split('/');
+    const itemID = parseURL[parseURL.length - 1];
+    // axios.get('/api/products/1/suggestions/')
+    axios.get(`/api/products/${itemID || 1}/suggestions/`)
       .then((res) => {
         console.log(res.data[0].list);
         this.setState({ suggestions: res.data[0].list });

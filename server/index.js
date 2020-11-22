@@ -7,10 +7,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
-// serve up static files
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
-// set up routes
 app.get('/api/products/:id/suggestions', (req, res) => {
   db.findRecord(parseInt(req.params.id, 10))
     .then((record) => {
@@ -21,6 +19,10 @@ app.get('/api/products/:id/suggestions', (req, res) => {
       res.status(404).send(err);
       console.log('Unable to get record: ', err);
     });
+});
+
+app.get('/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
 });
 
 module.exports = app;
