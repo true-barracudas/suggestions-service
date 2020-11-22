@@ -28,6 +28,7 @@ const config = {
     path: BUILD_DIR,
     filename: 'bundle.js',
   },
+  mode: 'development',
 };
 
 module.exports = config;
