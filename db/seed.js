@@ -1,4 +1,5 @@
 const faker = require('faker');
+const mongoose = require('mongoose');
 const db = require('./controllers/db.js');
 
 // possible selections
@@ -107,7 +108,9 @@ const createRecords = () => {
 db.save(createRecords())
   .then((records) => {
     //console.log('Successfully saved records', records);
+    mongoose.disconnect();
   })
   .catch((err) => {
     console.log('Error saving suggestions: ', err);
+    mongoose.disconnect();
   });
