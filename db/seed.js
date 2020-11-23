@@ -106,7 +106,7 @@ const createRecords = () => {
 // save records into db
 db.save(createRecords())
   .then((records) => {
-    console.log('Successfully saved records', records);
+    //console.log('Successfully saved records', records);
   })
   .catch((err) => {
     console.log('Error saving suggestions: ', err);

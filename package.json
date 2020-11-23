@@ -14,7 +14,8 @@
     "test-fe": "./node_modules/.bin/jest --config ./test/frontend/jest.config.js",
     "test-be:watch": "npm run test-be -- --watch",
     "test-fe:watch": "npm run test-fe -- --watch",
-    "test": "npm run test-fe && npm run test-be"
+    "test": "npm run test-fe && npm run test-be",
+    "docker": "node db/seed.js && node server/start.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
