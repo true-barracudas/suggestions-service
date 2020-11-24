@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:12-alpine
 
 RUN mkdir -p /src/app
 
@@ -10,4 +10,4 @@ RUN npm install
 
 EXPOSE 3003
 
-CMD [ "npm", "run", "docker" ]
+CMD npm run react-dev && npm run docker

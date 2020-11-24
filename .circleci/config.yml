@@ -36,6 +36,21 @@ jobs:
           command: |
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push $IMAGE_NAME:latest
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - 2a:68:2b:5f:2a:68:65:01:f9:06:4d:da:64:22:08:48
+      - run:
+          name: Deploy over SSH
+          command: |
+            ssh -o StrictHostKeyChecking=no ubuntu@ec2-54-153-99-6.us-west-1.compute.amazonaws.com \
+            cd FEC \
+            docker-compose pull \
+            docker-compose up -d \
+            ENDSSH
 workflows:
   version: 2
   build-master:
@@ -49,6 +64,12 @@ workflows:
             - build
           context:
             - suggestions_login
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - publish-latest
           filters:
             branches:
               only: master

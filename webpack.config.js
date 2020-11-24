@@ -5,7 +5,7 @@ const APP_DIR = path.resolve(__dirname, 'client/src');
 
 const config = {
   entry: `${APP_DIR}/index.jsx`,
-  watch: true,
+  watch: false,
   module: {
     rules: [
       {
@@ -28,7 +28,7 @@ const config = {
     path: BUILD_DIR,
     filename: 'bundle.js',
   },
-  mode: 'development',
+  mode: 'production',
 };
 
 module.exports = config;
