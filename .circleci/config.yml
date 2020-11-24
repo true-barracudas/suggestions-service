@@ -47,9 +47,9 @@ jobs:
           name: Deploy over SSH
           command: |
             ssh -o StrictHostKeyChecking=no ubuntu@ec2-54-153-99-6.us-west-1.compute.amazonaws.com \
-            cd FEC \
-            docker-compose pull \
-            docker-compose up -d \
+            cd FEC && \
+            docker-compose pull && \
+            docker-compose up -d && \
             ENDSSH
 workflows:
   version: 2
