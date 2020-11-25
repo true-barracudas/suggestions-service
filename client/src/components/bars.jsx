@@ -12,15 +12,6 @@ const Wrapper = styled.ul`
   pointer-events: auto;
 `;
 
-const StyledBar = styled.li`
-  align-items: flex-end;
-  cursor: pointer;
-  display: flex;
-  height: 12px;
-  padding: 4px 3px;
-}
-`;
-
 const Span = styled.span`
   background: black;
   border-radius: 0;
@@ -28,9 +19,18 @@ const Span = styled.span`
   height: ${(props) => (props.view.toString() === props.id ? '5px' : '1px')};
   transition: .1s cubic-bezier(.3,0,.45,1);
   width: 23px;
-  &:hover {
+`;
+
+const StyledBar = styled.li`
+  align-items: flex-end;
+  cursor: pointer;
+  display: flex;
+  height: 12px;
+  padding: 4px 3px;
+  &:hover ${Span} {
     height: 5px;
   }
+}
 `;
 
 const Bars = ({ view, setView }) => {
