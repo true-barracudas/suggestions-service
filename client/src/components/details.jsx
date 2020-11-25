@@ -27,7 +27,7 @@ const StyledSeries = styled.div`
   color: grey;
   font-family: AdihausDIN;
   font-size: 16px;
-  padding: 5px;
+  padding: 0px 20px 0px 20px;
   margin-top: 5px;
 `;
 
@@ -39,7 +39,7 @@ const WrapperPrices = styled.div`
 
 const WrapperTypePrice = styled.div`
   height: 130px;
-  padding: 5px;
+  padding: 0px 20px 0px 20px;
 `;
 
 function Details({
