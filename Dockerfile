@@ -10,4 +10,4 @@ RUN npm install
 
 EXPOSE 3003
 
-CMD npm run react-dev && npm run docker
+CMD npm run dev-react && npm run docker
