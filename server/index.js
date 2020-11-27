@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const path = require('path');
 const db = require('../db/controllers/db.js');
 
 const app = express();
 
 app.use(bodyParser.json());
-
+app.use(compression());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 app.get('/api/products/:id/suggestions', (req, res) => {
