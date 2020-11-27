@@ -18,7 +18,6 @@ class App extends React.Component {
     // axios.get('/api/products/1/suggestions/')
     axios.get(`/api/products/${itemID || 1}/suggestions/`)
       .then((res) => {
-        console.log(res.data[0].list);
         this.setState({ suggestions: res.data[0].list });
       })
       .catch((err) => {

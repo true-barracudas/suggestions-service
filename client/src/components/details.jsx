@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const StyledType = styled.div`
-  font-family: AdihausDIN;
+  font-family: AdihausDIN, Helvetica, Arial, sans-serif;
   font-size: 16px;
   margin-top: 10px;
 `;
 
 const StyledPrice = styled.div`
-  font-family: AdihausDIN;
+  font-family: AdihausDIN, Helvetica, Arial, sans-serif;;
   font-size: 16px;
   padding: 3px;
   color: ${(props) => (props.salePrice !== 0 ? 'grey' : 'black')};
