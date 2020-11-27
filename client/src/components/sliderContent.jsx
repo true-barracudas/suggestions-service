@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   transform: translateX(-${(props) => (props.view * WIDTH)}px);
   transition: transform 0.5s;
   border: 1px solid transparent;
+  cursor: pointer;
   &:hover {
     border: 1px solid black;
     }
@@ -25,13 +26,13 @@ function SliderContent({ view, list }) {
     id, price, recycledMaterials, salePrice, series, shoeUrl, type,
   }) => (
       <Wrapper view={view} key={id}>
-        <Photo url={shoeUrl}/>
+        <Photo url={shoeUrl} />
         <Details
-        price={price}
-        recycled={recycledMaterials}
-        salePrice={salePrice}
-        series={series}
-        type={type}/>
+          price={price}
+          recycled={recycledMaterials}
+          salePrice={salePrice}
+          series={series}
+          type={type} />
       </Wrapper>
   ));
 

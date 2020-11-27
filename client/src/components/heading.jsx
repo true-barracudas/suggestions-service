@@ -6,6 +6,7 @@ const HeadingStyle = styled.h5`
   font-size: 30px;
   padding: 0px;
   margin: 0px 0px 20px 0px;
+  width: 100%;
 `;
 
 function Heading() {

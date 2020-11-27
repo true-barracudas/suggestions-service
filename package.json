@@ -9,6 +9,7 @@
   "scripts": {
     "start": "nodemon server/start.js",
     "dev-react": "webpack",
+    "react": "webpack --watch",
     "seed-database": "node db/seed.js",
     "test-be": "./node_modules/.bin/jest --config ./test/backend/jest.config.js",
     "test-fe": "./node_modules/.bin/jest --config ./test/frontend/jest.config.js",
@@ -50,7 +51,6 @@
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
     "nodemon": "^1.11.0",
-    "puppeteer": "^5.4.1",
     "supertest": "^6.0.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"

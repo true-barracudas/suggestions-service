@@ -6,21 +6,25 @@ const Container = styled.div`
   position: absolute;
   display: flex;
   height: 100%;
-  right: 10px;
+  right: 7px;
   align-items: center;
 `;
 
 const Wrapper = styled.div`
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
+  background-color: hsla(0,0%,100%,.7);
   &:hover {
     background-color: black;
   }
 `;
 
 const StyledRightArrow = styled.svg`
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
   &:hover {
     filter: invert(100%);
   }
@@ -37,7 +41,7 @@ const RightArrow = ({ view, setView }) => {
   return (
     <Container>
       <Wrapper>
-        <StyledRightArrow width="1.5rem" height="1.5rem" viewBox="0 0 10 24" onClick={updateView}>
+        <StyledRightArrow width="1.75rem" height="1.75rem" viewBox="0 0 10 24" onClick={updateView}>
           <path fill="none" stroke="black" strokeMiterlimit="10" strokeWidth="2" d="M2 5.5L8.5 12 2 18.5"></path>
         </StyledRightArrow>
       </Wrapper>

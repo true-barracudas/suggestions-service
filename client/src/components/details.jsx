@@ -17,7 +17,7 @@ const StyledPrice = styled.div`
 `;
 
 const StyledSalePrice = styled.div`
-  font-family: AdihausDIN;
+  font-family: AdihausDIN,  Helvetica, Arial, sans-serif;
   font-size: 16px;
   padding: 3px;
   color: red;
@@ -25,10 +25,10 @@ const StyledSalePrice = styled.div`
 
 const StyledSeries = styled.div`
   color: grey;
-  font-family: AdihausDIN;
+  font-family: AdihausDIN,  Helvetica, Arial, sans-serif;
   font-size: 16px;
-  padding: 0px 20px 0px 20px;
-  margin-top: 5px;
+  padding: 0px 10px;
+  margin-top: 10px;
 `;
 
 const WrapperPrices = styled.div`
@@ -39,7 +39,7 @@ const WrapperPrices = styled.div`
 
 const WrapperTypePrice = styled.div`
   height: 130px;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 10px;
 `;
 
 function Details({

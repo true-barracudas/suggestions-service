@@ -28,7 +28,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="suggestions-service">
+      <div>
         <Heading />
         <Slider list={this.state.suggestions}/>
       </div>
