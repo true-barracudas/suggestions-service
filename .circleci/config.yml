@@ -36,19 +36,28 @@ jobs:
           command: |
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push $IMAGE_NAME:latest
-  deploy:
-    machine:
-      enabled: true
+  trigger-proxy:
+    machine: true
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - 2a:68:2b:5f:2a:68:65:01:f9:06:4d:da:64:22:08:48
       - run:
-          name: Deploy over SSH
+          name: Trigger Proxy
           command: |
-            ssh -o StrictHostKeyChecking=no ubuntu@ec2-54-153-99-6.us-west-1.compute.amazonaws.com bash -c '\
-            docker-compose pull
-            docker-compose up -d'
+            curl -u $PROXY_API_TOKEN: \
+            -d 'build_parameters[CIRCLE_JOB]=deploy' \
+            https://circleci.com/api/v1.1/project/github/true-barracudas/reviews-proxy/tree/master
+  # deploy:
+  #   machine:
+  #     enabled: true
+  #   steps:
+  #     - add_ssh_keys:
+  #         fingerprints:
+  #           - 2a:68:2b:5f:2a:68:65:01:f9:06:4d:da:64:22:08:48
+  #     - run:
+  #         name: Deploy over SSH
+  #         command: |
+  #           ssh -o StrictHostKeyChecking=no ubuntu@ec2-54-153-99-6.us-west-1.compute.amazonaws.com bash -c '\
+  #           docker-compose pull
+  #           docker-compose up -d'
 workflows:
   version: 2
   build-master:
@@ -65,9 +74,17 @@ workflows:
           filters:
             branches:
               only: master
-      - deploy:
+      - trigger-proxy:
+          context:
+            - proxy_context
           requires:
             - publish-latest
           filters:
             branches:
               only: master
+      # - deploy:
+      #     requires:
+      #       - publish-latest
+      #     filters:
+      #       branches:
+      #         only: master
