@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 import Heart from './heart.jsx';
 
 const StyledPhoto = styled.img`
-  height: auto;
-  width: auto;
-  min-height: 45px;
-  min-width: 45px;
+  width: 220px;
 `;
 
 const Wrapper = styled.div`

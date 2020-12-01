@@ -1,2 +1,2 @@
-const WIDTH = 1154;
+const WIDTH = 930;
 export default WIDTH;
