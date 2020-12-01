@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   margin: 0 5px;
   transform: translateX(-${(props) => (props.view * WIDTH)}px);
   transition: transform 0.5s;
-  border: 1px solid transparent;
+  border: 0.5px solid transparent;
   cursor: pointer;
   &:hover {
     border: 1px solid black;
