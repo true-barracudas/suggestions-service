@@ -8,7 +8,7 @@ const Container = styled.div`
   height: 100%;
   padding-left: 7px;
   align-items: center;
-  z-index: 100;
+  z-index: 3;
 `;
 
 const Wrapper = styled.div`
