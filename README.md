@@ -1,6 +1,6 @@
-# Project Name
+# Athletic apparel web application
 
-> Athletic apparel web application. The suggestion service displays suggested shoes. Other services:
+> The suggestion service displays suggested shoes with price, style and sale information. Other related services include:
   - https://github.com/true-barracudas/reviews-service
   - https://github.com/true-barracudas/trackpinch-service
   - https://github.com/true-barracudas/sizepicker-service
