@@ -1,9 +1,6 @@
 # Athletic apparel web application
 
-> The suggestion service displays suggested shoes with price, style and sale information. Other related services include:
-  - https://github.com/true-barracudas/reviews-service
-  - https://github.com/true-barracudas/trackpinch-service
-  - https://github.com/true-barracudas/sizepicker-service
+> This is the suggestion service that is part of the athletic apparel web application. Users can see a display of recommended products with price, style and sale information of each item
 
 
 ## Table of Contents
